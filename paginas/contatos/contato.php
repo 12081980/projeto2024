@@ -1,25 +1,25 @@
  <?php
-require_once './model/ClasseUsuario.php';
-$user = new Usuario("dbagenda", "localhost", "root", "");
+  $pesquisa = (isset($_POST["pesquisa"]))?$_POST["pesquisa"]:"";
  ?>
- 
- <header>
-    <h3>Contatos</h3>
- </header>
+  
 <div class="pesquisa">
-    <form action="index.php?menuop=contatos" method="post">
-        <input type="text" name="pesquisa">
+    <form action="index.php?menuop=contatos" method="POST">
+        <input   type="text" name="pesquisa" value="<?= $pesquisa?>">
         <input type="submit"  value="Consulta">
     </form>
+
 </div>
 
-
-<div class="btnCad">
-    <a href="index.php?menuop=cadContato">Cadastrar novo cliente</a>
+<div class="cadmais" >
+    <a href="index.php?menuop=cadContato">Cadastrar novo cliente <i class="fa-solid fa-plus"></i></a>
 </div>
- <table border="1">
+</div>
+<div class="cad"> 
+ <table>
+    
     <thead>
-        <tr>           
+        <tr>         
+            
             <th>Nome</th>
             <th>E-mail</th>
             <th>Telefone</th>           
@@ -34,57 +34,137 @@ $user = new Usuario("dbagenda", "localhost", "root", "");
         </tr>       
      
     </thead>
-    <tbody>
+    
 
     <?php
-    
-$pesquisa = (isset($_POST["pesquisa"]))?$_POST["pesquisa"]:"";
-
-$sql= "SELECT * FROM contatos
-WHERE
- idContato='{pesquisa}' or 
-nomeContato LIKE '%{pesquisa}%'
-";
-$result = mysqli_query($conexao,$sql) or die("Erro ao executar a consulta" .mysqli_error($conexao));
 
 
-$dados = $user->buscarDados();
-if (count($dados) > 0) {
-    for ($i = 0; $i < count($dados); $i++) {
-        echo "<tr>";
-        foreach ($dados[$i] as $key => $values) {
-            if ($key != "idContato") {
-                if ($key != "senha"){
-                if ($key != "flagFavContato")
-                    echo "<td>$values</td>";
-                }
-            }
+            $quantidade = 3;
+
+            $pagina =(isset($_GET['pagina']))?(int)$_GET['pagina']:1;
             
-        }
-        ?>
+            $inicio=($quantidade*$pagina)- $quantidade;
+            
+            
+                
+           
+            
+            $sql= "SELECT 
+            idContato,
+            upper(nomeContato) AS nomeContato,
+            lower(emailContato) AS emailContato,
+            telefoneContato,
+            upper(enderecoContato) AS enderecoContato,
+            CASE
+            
+            WHEN sexoContato ='F' THEN 'FEMININO'
+            WHEN sexoContato ='M' THEN 'MASCULINO'
+            ELSE 
+            'NÃO ESPECIFICADO'
+            END AS sexoContato,
+            DATE_FORMAT(dataNascContato,'%d/%m/%Y') AS dataNascContato,
+            numeroContato,cidadeContato,estadoContato
+            
+            FROM contatos
+            
+            WHERE
+            nomeContato ='{$pesquisa}' or 
+            emailContato LIKE '%{$pesquisa}%'
+            
+            LIMIT  $inicio,$quantidade
+            ";
+            
+            $result = mysqli_query($conexao,$sql) or die("Erro ao executar a consulta" .mysqli_error($conexao));
+            
+            while ($dados= mysqli_fetch_assoc($result)){
+                ?>
+                <tr
+                class="item">
+                  
+                    <td ><?=$dados["nomeContato"]?></td>
+                    <td><?=$dados["emailContato"]?></td>
+                    <td><?=$dados["telefoneContato"]?></td>
+                    <td><?=$dados["dataNascContato"]?></td>
+                    <td><?=$dados["sexoContato"]?></td>
+                    <td><?=$dados["enderecoContato"]?></td>
+                    <td><?=$dados["numeroContato"]?></td>
+                    <td><?=$dados["cidadeContato"]?></td>
+                    <td><?=$dados["estadoContato"]?></td>
+                    <td>
+                        
+                    <div class="editar">   
+                    <a href="index.php?menuop=editarContato&idContato=<?=$dados['idContato']?>"><i class="fa-solid fa-pen-to-square"></i></a>
 
-
-
-
-
-<td> <a href="index.php?menuop=editarContato&idContato=<?=$dados[$i]['idContato']?>">Editar</a>
-
-<a href="index.php?menuop=excluirContato&idContato=<?=$dados[$i]['idContato']?>">Excluir</a>
-            <!-- <a href="">Excluir</a> -->
+                    <a href="index.php?menuop=excluirContato&idContato=<?=$dados['idContato']?>"><i class="fa-solid fa-trash"></i></a>
+                    </div> 
         </td>
 
-<?php
 
 
 
-
-        echo "</tr>";
-    }
+                </tr>
+            <?php
+            }          
         
-    }
+        ?>
 
-
-    
-?>
     </tbody>
  </table>
+ </div>
+ 
+ <?php
+
+$quantidade = 3;
+
+$pagina =(isset($_GET['pagina']))?(int)$_GET['pagina']:1;
+
+$inicio=($quantidade*$pagina)- $quantidade;
+
+
+$sqlTotal="SELECT idContato FROM contatos";
+$queryReult= mysqli_query($conexao,$sqlTotal) or die (mysqli_error($conexao));
+$numeroTotal = mysqli_num_rows($queryReult);
+$totalPag = ceil($numeroTotal/$quantidade);
+
+
+
+
+echo "<a href=\"?menuop=contatos&pagina=1\">Primeira pagina</a>";
+
+if($pagina>3){
+    ?>
+    <a href="?menuop=contatos&pagina=<?php echo $pagina-1?>"> << </a>
+
+    <?php
+
+}
+
+for ($i = 1; $i <=$totalPag; $i++){    
+    
+if($i>=($pagina-3) && $i <= ($pagina+3)){
+    if($i==$pagina){
+       echo $i;
+           
+    }else{
+        echo "<a href=\"?menuop=contatos&pagina=$i\">$i</a>";
+    }
+    }
+}
+if($pagina<($totalPag-3)){
+    ?>
+   
+    <a href="?menuop=contatos&pagina=<?php echo $pagina+1?>"> >> </a>
+    
+    <?php
+}
+
+echo"<a href=\"?menuop=contatos&pagina=$totalPag\"> Última pagina</a>";
+            
+    
+ ?>
+ </div>
+ <div class="total">
+    <?php echo "Total de clientes: $numeroTotal";
+    
+    ?>
+ </div>

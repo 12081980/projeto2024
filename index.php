@@ -1,29 +1,7 @@
 <?php
-include ("db/conexao.php");
+include ("./suporte/header.php");
 
 ?>
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda</title>
-</head>
-<body>
-    <header>
-        <h1>SisAgenda</h1>
-        <nav>
-            <a href="index.php?menuop=home">Home</a>
-            <a href="index.php?menuop=contatos">Contatos</a>
-            <a href="index.php?menuop=tarefas">Tarefas</a>
-            <a href="index.php?menuop=eventos">Eventos</a>
-        </nav>
-    </header>
-    <main>
 <?php
 $menuop =(isset($_GET['menuop']))?$_GET['menuop']:"home";
 switch($menuop){
@@ -61,9 +39,12 @@ switch($menuop){
 }
 
 ?>
-    </main>
-    <footer>
+   
+    <?php
+    include ("./suporte/footer.php");
+    ?>
 
-    </footer>
+
 </body>
+<script type="text/javascript" src="./js/formulario.js"></script>
 </html>
