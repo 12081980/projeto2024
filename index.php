@@ -30,8 +30,17 @@ switch($menuop){
     case 'tarefas':
     include ("paginas/tarefas/tarefas.php");
     break;
-    case 'eventos':
-    include ("paginas/eventos/eventos.php");
+    case 'login':
+    include ("paginas/contatos/login.php");
+    break;
+    case 'verificaLogin':
+    include ("paginas/contatos/verificaLogin.php");
+    break;
+    case 'areaClienteContato':
+    include ("paginas/contatos/areaClienteContato.php");
+    break;
+    case 'areaAdm':
+    include ("paginas/adm/areaAdm.php");
     break;
     default:
     include ("paginas/home/home.php");

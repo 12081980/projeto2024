@@ -114,8 +114,8 @@ $inicio=($quantidade*$pagina)- $quantidade;
 
 
 $sqlTotal="SELECT idTarefa FROM tarefas";
-$queryReult= mysqli_query($conexao,$sqlTotal) or die (mysqli_error($conexao));
-$numeroTotal = mysqli_num_rows($queryReult);
+$queryResult= mysqli_query($conexao,$sqlTotal) or die (mysqli_error($conexao));
+$numeroTotal = mysqli_num_rows($queryResult);
 $totalPag = ceil($numeroTotal/$quantidade);
 ?>
 

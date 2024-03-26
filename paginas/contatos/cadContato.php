@@ -61,6 +61,11 @@
 <input type="text" name="estadoContato" placeholder="Digite seu estado" class="inputs required" oninput="estadoValidate()"required>
               <p class="span-required">Digite um estado válido</p>
         </div>
+        <div >
+        <label for="estadoContato">Estado</label>
+<input type="password" name="senhaContato" placeholder="Digite sua senha" class="inputs required" oninput="senhaValidate()"required>
+              <p class="span-required">Digite um estado válido</p>
+        </div>
 
         
         <button type="submit">Enviar</button>
