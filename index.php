@@ -27,11 +27,14 @@ switch($menuop){
             case 'atualizarContato':
                 include ("paginas/contatos/atualizarContato.php");
                 break;
-    case 'tarefas':
-    include ("paginas/tarefas/tarefas.php");
+    case 'eventos':
+    include ("paginas/eventos/eventos.php");
     break;
     case 'login':
     include ("paginas/contatos/login.php");
+    break;
+    case 'saor':
+    include ("paginas/contatos/sair.php");
     break;
     case 'verificaLogin':
     include ("paginas/contatos/verificaLogin.php");
@@ -41,6 +44,9 @@ switch($menuop){
     break;
     case 'areaAdm':
     include ("paginas/adm/areaAdm.php");
+    break;
+    case 'servicos':
+    include ("paginas/contatos/servicos.php");
     break;
     default:
     include ("paginas/home/home.php");

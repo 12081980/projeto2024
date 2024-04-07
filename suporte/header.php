@@ -25,9 +25,10 @@ include ("db/conexao.php");
             <nav> 
             <a href="index.php?menuop=home">Home</a>
             <a href="index.php?menuop=contatos">Contatos</a>
-            <a href="index.php?menuop=tarefas">Tarefas</a>
+            <a href="index.php?menuop=servicos">Serviços</a>
+            <!-- <a href="index.php?menuop=tarefas">Tarefas</a> -->
             <a href="index.php?menuop=eventos">Eventos</a>
-            <a href="index.php?menuop=areaAdm">Adm</a>
+            <!-- <a href="index.php?menuop=areaAdm">Adm</a> -->
             <a href="index.php?menuop=login"><i class="fa-solid fa-right-to-bracket"></i></a> 
         </nav>  
             

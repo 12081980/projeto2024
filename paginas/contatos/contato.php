@@ -5,7 +5,7 @@
 <div class="contatos_cards container grid">
 <div class="contatos_item flex">
     <div class="contatos_img">
-        <img src="./img/contato1.jpg" alt="">
+        <img src="../../img/secador.png" alt="">
     </div>
     <div class="contatos_box">
         <div class="contatos_nome">
@@ -63,7 +63,7 @@
         
         <div class="contatos_item flex">
             <div class="contatos_img">
-                <img src="./img/contato3.jpg" alt="">
+                <img src="../img/contato3.jpg" alt="">
             </div>
             <div class="contatos_box">
                 <div class="contatos_nome">

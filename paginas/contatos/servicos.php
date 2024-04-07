@@ -1,25 +1,11 @@
-<?php
-
-
-?>
-
-
-
-
 <section class="servicos" id="servicos">
-
             <div class="servicos_content">
                 <div class="row">
                     <div class="section_titulo">
                         <h1>Serviços</h1>
                         <span>Que realizamos</span>
-                       <h2>
-    <a href="index.php?menuop=sair">Sair</a>
-    </h2>
                     </div>
-
                 </div>
-               
 
                 <div class="servicos_content_descricao grid container">
 
