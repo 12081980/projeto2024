@@ -11,4 +11,4 @@ $sql = "DELETE FROM contatos WHERE idContato =$_GET[idContato] ";
 mysqli_query($conexao,$sql) or die("Erro ao excluir o registro".mysqli_error($conexao));
 
 echo"Registro excluido com sucesso";       
-header("Refresh: 3;url=index.php?menuop=contatos");
+header("Refresh: 3;url=index.php?menuop=areaAdm");

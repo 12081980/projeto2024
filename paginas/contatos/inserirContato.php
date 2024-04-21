@@ -19,9 +19,9 @@ $cidadeContato =mysqli_real_escape_string($conexao,$_POST["cidadeContato"]);
 
 $estadoContato =mysqli_real_escape_string($conexao,$_POST["estadoContato"]);
 
-$senhaContato =mysqli_real_escape_string($conexao,$_POST["senhaContato"]);
+// $senhaContato =mysqli_real_escape_string($conexao,$_POST["senhaContato"]);
 
-$sql =  "INSERT INTO contatos(nomeContato,emailContato,telefoneContato,dataNascContato,sexoContato,enderecoContato,numeroContato,cidadeContato,estadoContato,senhaContato)
+$sql =  "INSERT INTO contatos(nomeContato,emailContato,telefoneContato,dataNascContato,sexoContato,enderecoContato,numeroContato,cidadeContato,estadoContato)
  VALUES(
    '{$nomeContato}',
    '{$emailContato}',
@@ -32,11 +32,11 @@ $sql =  "INSERT INTO contatos(nomeContato,emailContato,telefoneContato,dataNascC
    '{$numeroContato}',
    '{$cidadeContato}',
    '{$estadoContato}'
-   '{$senhaContato}'
+   
  )";
 
 $result = mysqli_query($conexao,$sql)or die ("Erro ao tentar realizar o cadstro".mysqli_error($conexao));
 
 
 echo"Cadastro realizado com sucesso";       
-header("Refresh: 3;url=index.php?menuop=contatos");
+header("Refresh: 3;url=index.php?menuop=areaAdm");

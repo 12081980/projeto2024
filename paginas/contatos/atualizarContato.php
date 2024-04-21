@@ -37,4 +37,4 @@ $result = mysqli_query($conexao,$sql)or die ("Erro ao tentar realizar o cadstro"
 
 
 echo"Dados atualizados com sucesso";       
-header("Refresh: 3;url=index.php?menuop=contatos");
+header("Refresh: 3;url=index.php?menuop=areaAdm");

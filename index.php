@@ -33,7 +33,7 @@ switch($menuop){
     case 'login':
     include ("paginas/contatos/login.php");
     break;
-    case 'saor':
+    case 'sair':
     include ("paginas/contatos/sair.php");
     break;
     case 'verificaLogin':
@@ -42,6 +42,10 @@ switch($menuop){
     case 'areaClienteContato':
     include ("paginas/contatos/areaClienteContato.php");
     break;
+    case 'agendar':
+    include ("paginas/contatos/agendar.php");
+    break;
+   
     case 'areaAdm':
     include ("paginas/adm/areaAdm.php");
     break;

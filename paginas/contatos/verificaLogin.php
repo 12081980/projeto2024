@@ -1,8 +1,12 @@
 <?php
- include_once('db/config.php');
 
-$emailContato=$_POST['emailContato'];
-$senhaContato=$_POST['senhaContato'];
+ include_once('db/config.php');
+ if(isset($_SESSION)){
+    session_start();
+}
+
+// $emailContato=$_POST['emailContato'];
+// $senhaContato=$_POST['senhaContato'];
 
 if(isset($_POST['emailContato']) || isset($_POST['senhaContato'])){
     if(strlen($_POST['emailContato'])==0){
@@ -13,7 +17,7 @@ if(isset($_POST['emailContato']) || isset($_POST['senhaContato'])){
         $emailContato=$conexao->real_escape_string($_POST['emailContato']);
         $senhaContato=$conexao->real_escape_string($_POST['senhaContato']);
 
-        $sql="SELECT*FROM contatos WHERE emailContato='$emailContato' AND senhaContato = '$senhaContato'";
+        $sql="SELECT * FROM contatos WHERE emailContato='$emailContato' AND senhaContato = '$senhaContato'";
 
         $sqlResult=$conexao ->query($sql) or die('Falha na execução:' .$mysqli->error);
 
@@ -24,10 +28,10 @@ $usuarioContato=$sqlResult->fetch_assoc();
 if(isset($_SESSION)){
     session_start();
 }
-$_SESSION['nomeContato']=$usuarioContato['nome'];
-$_SESSION['emailContato']=$usuarioContato['email'];
+$_SESSION['nomeContato']=$usuarioContato['nomeContato'];
+$_SESSION['emailContato']=$usuarioContato['emailContato'];
 
-header("Location:index.php?menuop=areaClienteContato");
+header("Location:index.php?menuop=agendar");
 
 
         }else{

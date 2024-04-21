@@ -18,8 +18,13 @@ include ("db/conexao.php");
     <title>Agenda</title>
 </head>
 <body>
-    <div class="head">           
-        <h1>SisAgenda</h1>
+    <!-- <div class="head">     -->
+    <div class="marca">
+                <p>Beautiful<br><span>Hair</span> </p>
+
+               </div>       
+        <!-- <h1>SisAgenda</h1> -->
+         
         </div>      
         <header class="topo">
             <nav> 
@@ -28,12 +33,11 @@ include ("db/conexao.php");
             <a href="index.php?menuop=servicos">Serviços</a>
             <!-- <a href="index.php?menuop=tarefas">Tarefas</a> -->
             <a href="index.php?menuop=eventos">Eventos</a>
-            <!-- <a href="index.php?menuop=areaAdm">Adm</a> -->
+            <a href="index.php?menuop=areaAdm">Adm</a>
             <a href="index.php?menuop=login"><i class="fa-solid fa-right-to-bracket"></i></a> 
-        </nav>  
-            
+        </nav>              
     </header> 
-    <div class="line"></div>
+    <!-- <div class="line"></div> -->
     </div>     
     <section>
     

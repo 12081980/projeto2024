@@ -62,7 +62,7 @@
               <p class="span-required">Digite um estado válido</p>
         </div>
         <div >
-        <label for="estadoContato">Estado</label>
+        <label for="senhaContato">senha</label>
 <input type="password" name="senhaContato" placeholder="Digite sua senha" class="inputs required" oninput="senhaValidate()"required>
               <p class="span-required">Digite um estado válido</p>
         </div>

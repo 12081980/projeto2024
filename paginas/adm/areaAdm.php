@@ -3,7 +3,7 @@
  ?>
   
 <div class="pesquisa">
-    <form action="index.php?menuop=verificaLogin" method="POST">
+    <form action="index.php?menuop=areaAdm" method="POST">
         <input   type="text" name="pesquisa" value="<?= $pesquisa?>">
         <input type="submit"  value="Consulta">
     </form>
@@ -129,11 +129,11 @@ $totalPag = ceil($numeroTotal/$quantidade);
 
 
 
-echo "<a href=\"?menuop=contatos&pagina=1\">Primeira pagina</a>";
+echo "<a href=\"?menuop=areaAdm&pagina=1\">Primeira pagina</a>";
 
 if($pagina>3){
     ?>
-    <a href="?menuop=contatos&pagina=<?php echo $pagina-1?>"> << </a>
+    <a href="?menuop=areaAdm&pagina=<?php echo $pagina-1?>"> << </a>
 
     <?php
 
@@ -146,19 +146,19 @@ if($i>=($pagina-3) && $i <= ($pagina+3)){
        echo $i;
            
     }else{
-        echo "<a href=\"?menuop=contatos&pagina=$i\">$i</a>";
+        echo "<a href=\"?menuop=areaAdm&pagina=$i\">$i</a>";
     }
     }
 }
 if($pagina<($totalPag-3)){
     ?>
    
-    <a href="?menuop=contatos&pagina=<?php echo $pagina+1?>"> >> </a>
+    <a href="?menuop=areaAdm&pagina=<?php echo $pagina+1?>"> >> </a>
     
     <?php
 }
 
-echo"<a href=\"?menuop=contatos&pagina=$totalPag\"> Última pagina</a>";
+echo"<a href=\"?menuop=areaAdm&pagina=$totalPag\"> Última pagina</a>";
             
     
  ?>

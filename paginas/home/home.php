@@ -2,10 +2,7 @@
     
     
         <section class="inicial">
-        <div class="marca">
-                <p>Beautiful<br><span>Hair</span> </p>
-
-               </div>
+        
             <div class="container">
                 <div class="row">
                     <div class="inicial_img">
